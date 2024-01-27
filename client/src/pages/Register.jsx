@@ -1,5 +1,8 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
+
+import logo from "../assets/Trident-logos_transparent4.png";
 
 function Register() {
   const [userData, setUserData] = useState({
@@ -9,6 +12,9 @@ function Register() {
     password2: "",
   });
 
+  const [error, setError] = useState("");
+  const navigate = useNavigate();
+
   const changeInputHandler = (e) => {
     setUserData((prevState) => ({
       ...prevState,
@@ -16,12 +22,35 @@ function Register() {
     }));
   };
 
+  const baseUrl = "http://localhost:5000/api";
+
+  const registerUser = async (e) => {
+    e.preventDefault();
+    setError("");
+    try {
+      const response = await axios.post(`${baseUrl}/users/register`, userData);
+
+      const newUser = await response?.data;
+      console.log(newUser);
+
+      if (!newUser) {
+        setError("Couldn't register user. Please try again.");
+      }
+      navigate("/login");
+    } catch (error) {
+      setError(error?.response?.data?.message);
+    }
+  };
+
   return (
-    <section className="register">
+    <section className="register sign-form__container">
+      <div className="sign-form__logo">
+        <img src={logo} alt="" />
+      </div>
       <div className="container">
         <h2>Sign Up</h2>
-        <form className="form register__form">
-          <p className="form__error-message">This is an error message</p>
+        <form className="form register__form" onSubmit={registerUser}>
+          {error && <p className="form__error-message">{error}</p>}
           <input
             type="text"
             placeholder="Full Name"
@@ -50,9 +79,11 @@ function Register() {
             value={userData.password2}
             onChange={changeInputHandler}
           />
-          <button type="submit" className="btn primary">
-            Register
-          </button>
+          <div className="btn__wrapper">
+            <button type="submit" className="btn primary">
+              Register
+            </button>
+          </div>
         </form>
         <small>
           Already have an account? <Link to="/login">sign in</Link>

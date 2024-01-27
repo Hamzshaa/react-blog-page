@@ -1,11 +1,22 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useContext, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
+import logo from "../assets/Trident-logos_transparent4.png";
+
+import { UserContext } from "../context/userContext";
 
 function Login() {
   const [userData, setUserData] = useState({
     email: "",
     password: "",
   });
+
+  const [error, setError] = useState("");
+  const navigate = useNavigate();
+
+  const baseUrl = "http://localhost:5000/api";
+
+  const { setCurrentUser } = useContext(UserContext);
 
   const changeInputHandler = (e) => {
     setUserData((prevState) => ({
@@ -14,12 +25,29 @@ function Login() {
     }));
   };
 
+  const loginUser = async (e) => {
+    e.preventDefault();
+    setError("");
+
+    try {
+      const response = await axios.post(`${baseUrl}/users/login`, userData);
+      const user = await response?.data;
+      setCurrentUser(user);
+      navigate("/");
+    } catch (error) {
+      setError(error?.response?.data?.message);
+    }
+  };
+
   return (
-    <section className="login">
+    <section className="login sign-form__container">
+      <div className="sign-form__logo">
+        <img src={logo} alt="" />
+      </div>
       <div className="container">
         <h2>Sign In</h2>
-        <form className="form login__form">
-          <p className="form__error-message">This is an error message</p>
+        <form className="form login__form" onSubmit={loginUser}>
+          {error && <p className="form__error-message">{error}</p>}
 
           <input
             type="email"
@@ -37,9 +65,11 @@ function Login() {
             onChange={changeInputHandler}
           />
 
-          <button type="submit" className="btn primary">
-            Login
-          </button>
+          <div className="btn__wrapper">
+            <button type="submit" className="btn primary">
+              Login
+            </button>
+          </div>
         </form>
         <small>
           Don't have an account? <Link to="/register">sign Up</Link>

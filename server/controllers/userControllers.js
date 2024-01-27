@@ -118,7 +118,7 @@ const changeAvatar = async (req, res, next) => {
     if (user.avatar) {
       try {
         await fs.promises.unlink(
-          path.join(__dirname, "..", "uploads", user.avatar)
+          path.join(__dirname, "/../", "uploads/", user.avatar)
         );
       } catch (err) {
         return next(new HttpError(err));
