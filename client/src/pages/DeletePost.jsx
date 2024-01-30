@@ -23,7 +23,7 @@ function DeletePost({ postId: id }) {
     setIsLoading(true);
     try {
       const response = await axios.delete(
-        `http://localhost:5000/api/posts/${id}`,
+        `https://trident-blog-api.onrender.com/api/posts/${id}`,
         { withCredentials: true, headers: { Authorization: `Bearer ${token}` } }
       );
 

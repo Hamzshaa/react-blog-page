@@ -18,7 +18,10 @@ function PostItem({
   return (
     <article className="post">
       <div className="post__thumbnail">
-        <img src={`http://localhost:5000/uploads/${thumbnail}`} alt={title} />
+        <img
+          src={`https://trident-blog-api.onrender.com/uploads/${thumbnail}`}
+          alt={title}
+        />
       </div>
       <div className="post__content">
         <Link to={`/posts/${postID}`}>

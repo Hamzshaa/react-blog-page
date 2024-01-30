@@ -14,7 +14,7 @@ function Login() {
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
-  const baseUrl = "http://localhost:5000/api";
+  const baseUrl = "https://trident-blog-api.onrender.com/api";
 
   const { setCurrentUser } = useContext(UserContext);
 

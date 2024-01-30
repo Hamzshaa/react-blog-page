@@ -28,7 +28,7 @@ function Dashboard() {
       setIsLoading(true);
       try {
         const response = await axios.get(
-          `http://localhost:5000/api/posts/users/${id}`,
+          `https://trident-blog-api.onrender.com/api/posts/users/${id}`,
           {
             withCredentials: true,
             headers: { Authorization: `Bearer ${token}` },
@@ -58,7 +58,7 @@ function Dashboard() {
                 <div className="dashboard__post-info">
                   <div className="dashboard__post-thumbnail">
                     <img
-                      src={`http://localhost:5000/uploads/${post.thumbnail}`}
+                      src={`https://trident-blog-api.onrender.com/uploads/${post.thumbnail}`}
                       alt=""
                     />
                   </div>

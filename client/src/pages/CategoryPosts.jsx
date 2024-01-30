@@ -15,7 +15,7 @@ function CategoryPosts() {
     const fechPosts = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:5000/api/posts/categories/${category}`
+          `https://trident-blog-api.onrender.com/api/posts/categories/${category}`
         );
         setPosts(response?.data);
       } catch (error) {

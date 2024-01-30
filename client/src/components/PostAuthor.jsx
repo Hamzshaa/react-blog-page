@@ -17,7 +17,7 @@ function PostAuthor({ authorID, createdAt }) {
     const getAuthor = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:5000/api/users/${authorID}`
+          `https://trident-blog-api.onrender.com/api/users/${authorID}`
         );
         setAuthor(response?.data);
       } catch (error) {
@@ -31,7 +31,10 @@ function PostAuthor({ authorID, createdAt }) {
   return (
     <Link to={`/posts/users/${authorID}`} className="post__author">
       <div className="post__author-avatar">
-        <img src={`http://localhost:5000/uploads/${author?.avatar}`} alt="" />
+        <img
+          src={`https://trident-blog-api.onrender.com/uploads/${author?.avatar}`}
+          alt=""
+        />
       </div>
 
       <div className="post__author-details">

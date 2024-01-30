@@ -72,7 +72,7 @@ function CreatePosts() {
     postData.set("thumbnail", thumbnail);
     try {
       const response = await axios.post(
-        `http://localhost:5000/api/posts`,
+        `https://trident-blog-api.onrender.com/api/posts`,
         postData,
         { withCredentials: true, headers: { Authorization: `Bearer ${token}` } }
       );

@@ -15,7 +15,7 @@ function AuthorPosts() {
     const fechPosts = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:5000/api/posts/users/${id}`
+          `https://trident-blog-api.onrender.com/api/posts/users/${id}`
         );
         setPosts(response?.data);
       } catch (error) {

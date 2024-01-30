@@ -22,7 +22,7 @@ function PostDetail() {
       setIsLoading(true);
       try {
         const response = await axios.get(
-          `http://localhost:5000/api/posts/${id}`
+          `https://trident-blog-api.onrender.com/api/posts/${id}`
         );
         setPost(response.data);
         // setCreatorID(response.data.creator);
@@ -58,7 +58,7 @@ function PostDetail() {
           <h1>{post.title}</h1>
           <div className="post-detail__thumbnail">
             <img
-              src={`http://localhost:5000/uploads/${post.thumbnail}`}
+              src={`https://trident-blog-api.onrender.com/uploads/${post.thumbnail}`}
               alt=""
             />
           </div>

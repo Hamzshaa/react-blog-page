@@ -13,7 +13,9 @@ function Posts() {
     const fecthPosts = async () => {
       setIsLoading(true);
       try {
-        const response = await axios.get(`http://localhost:5000/api/posts`);
+        const response = await axios.get(
+          `https://trident-blog-api.onrender.com/api/posts`
+        );
         setPosts(response?.data);
       } catch (error) {
         console.log(error);

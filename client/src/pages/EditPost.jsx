@@ -68,7 +68,7 @@ function EditPost() {
     const getPost = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:5000/api/posts/${id}`
+          `https://trident-blog-api.onrender.com/api/posts/${id}`
         );
         setTitle(response.data.title);
         setDescription(response.data.description);
@@ -90,7 +90,7 @@ function EditPost() {
     postData.set("thumbnail", thumbnail);
     try {
       const response = await axios.patch(
-        `http://localhost:5000/api/posts/${id}`,
+        `https://trident-blog-api.onrender.com/api/posts/${id}`,
         postData,
         { withCredentials: true, headers: { Authorization: `Bearer ${token}` } }
       );

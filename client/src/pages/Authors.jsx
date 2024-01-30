@@ -12,7 +12,9 @@ function Authors() {
     const getAuthors = async () => {
       setIsLoading(true);
       try {
-        const response = await axios.get("http://localhost:5000/api/users");
+        const response = await axios.get(
+          "https://trident-blog-api.onrender.com/api/users"
+        );
         setAuthors(response?.data);
       } catch (error) {
         console.log(error);
@@ -36,7 +38,7 @@ function Authors() {
               <Link key={id} to={`/posts/users/${id}`} className="author">
                 <div className="author__avatar">
                   <img
-                    src={`http://localhost:5000/uploads/${avatar}`}
+                    src={`https://trident-blog-api.onrender.com/uploads/${avatar}`}
                     alt={`Image of ${name}`}
                   />
                 </div>

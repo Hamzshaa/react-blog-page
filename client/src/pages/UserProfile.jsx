@@ -33,7 +33,7 @@ function UserProfile() {
     const getUser = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:5000/api/users/${currentUser?.id}`,
+          `https://trident-blog-api.onrender.com/api/users/${currentUser?.id}`,
           {
             withCredentials: true,
             headers: { Authorization: `Bearer ${token}` },
@@ -56,7 +56,7 @@ function UserProfile() {
       const postData = new FormData();
       postData.set("avatar", avatar);
       const response = await axios.post(
-        `http://localhost:5000/api/users/change-avatar`,
+        `https://trident-blog-api.onrender.com/api/users/change-avatar`,
         postData,
         { withCredentials: true, headers: { Authorization: `Bearer ${token}` } }
       );
@@ -78,7 +78,7 @@ function UserProfile() {
       userData.set("confirmNewPassword", confirmNewPassword);
 
       const response = await axios.patch(
-        `http://localhost:5000/api/users/edit-user`,
+        `https://trident-blog-api.onrender.com/api/users/edit-user`,
         userData,
         { withCredentials: true, headers: { Authorization: `Bearer ${token}` } }
       );
@@ -102,7 +102,10 @@ function UserProfile() {
         <div className="profile__details">
           <div className="avatar__wrapper">
             <div className="profile__avatar">
-              <img src={`http://localhost:5000/uploads/${avatar}`} alt="" />
+              <img
+                src={`https://trident-blog-api.onrender.com/uploads/${avatar}`}
+                alt=""
+              />
             </div>
 
             <form className="avatar__form">
