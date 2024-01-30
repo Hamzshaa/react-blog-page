@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/static/css/main.22b15a62.css",
+    "main.js": "/static/js/main.a3a9c467.js",
+    "static/media/blog1.jpg": "/static/media/blog1.88b76b39e5b8bc07f272.jpg",
+    "static/media/blog10.jpg": "/static/media/blog10.a8cb7751225dc1ed069b.jpg",
+    "static/media/blog11.jpg": "/static/media/blog11.a6437527eb070f4f24a0.jpg",
+    "static/media/blog100.jpg": "/static/media/blog100.747f378d89ed88d45bb5.jpg",
+    "static/media/Spinner.gif": "/static/media/Spinner.538ceea0c55c8ea3e223.gif",
+    "static/media/Infinity.gif": "/static/media/Infinity.71852369117c8a1964d3.gif",
+    "static/media/blog2.jpg": "/static/media/blog2.bd7550db5a278835f905.jpg",
+    "static/media/Trident-logos_transparent2.png": "/static/media/Trident-logos_transparent2.3b498c57cf25d4aa6126.png",
+    "static/media/Trident-logos_transparent4.png": "/static/media/Trident-logos_transparent4.e783e3cb7e189aabc520.png",
+    "index.html": "/index.html",
+    "main.22b15a62.css.map": "/static/css/main.22b15a62.css.map",
+    "main.a3a9c467.js.map": "/static/js/main.a3a9c467.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.22b15a62.css",
+    "static/js/main.a3a9c467.js"
+  ]
+}
